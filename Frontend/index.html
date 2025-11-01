@@ -1,1 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kigali Clinic — Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-overlay" aria-hidden="true"></div>
 
+  <div class="container" role="application" aria-label="Clinic dashboard">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand" title="Kigali Clinic">
+        <div class="avatar" aria-hidden="true">KS</div>
+        <div>
+          <h1>Kigali Clinic</h1>
+          <div style="font-size:12px;opacity:0.95;font-weight:700">Welcome back</div>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Main navigation">
+        <button onclick="openPanel('dashboard')">🏠 <span class="label">Dashboard</span></button>
+        <button onclick="openPanel('appointment')">📅 <span class="label">Appointment</span></button>
+        <button onclick="openPanel('calendar')">🗓 <span class="label">Calendar</span></button>
+        <button onclick="openPanel('notification')">🔔 <span class="label">Notification</span></button>
+        <button onclick="openPanel('message')">💬 <span class="label">Message</span></button>
+        <button onclick="openPanel('logout')">🚪 <span class="label">Logout</span></button>
+      </nav>
+
+      <button class="collapse-toggle" id="collapseBtn">Hide menu</button>
+    </aside>
+
+    <main class="main">
+      <div class="header">
+        <div class="clinic-title">
+          <div style="display:flex;align-items:center;gap:10px">
+            <h2 style="margin:0">Kigali Clinic — Dashboard</h2>
+            <span class="tag">Local Clinics</span>
+          </div>
+          <small>Simple. Human-centered. Efficient.</small>
+        </div>
+
+        <div class="search-and-controls">
+          <div class="search" role="search">
+            🔍 <input id="searchInput" type="text" placeholder="Search doctor or patient..." readonly />
+          </div>
+
+          <button id="menuMobile">☰ Menu</button>
+        </div>
+      </div>
+
+      <section class="grid">
+        <article class="card">
+          <h3>Waiting list</h3>
+          <div class="small-list">
+            <div class="small-item"><span>Alex N.</span><span>10:20 AM</span></div>
+            <div class="small-item"><span>Marie K.</span><span>10:30 AM</span></div>
+            <div class="small-item"><span>John D.</span><span>10:45 AM</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Available doctors</h3>
+          <div class="small-list">
+            <div class="small-item"><span>Dr. Irene — GP</span><span>In</span></div>
+            <div class="small-item"><span>Dr. Paul — Dentist</span><span>Break</span></div>
+            <div class="small-item"><span>Dr. Sarah — Paediatrics</span><span>In</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Weekly report</h3>
+          <div style="display:flex;gap:10px;">
+            <div class="stat"><div>+32%</div><small>Appointments</small></div>
+            <div class="stat"><div>15</div><small>No-shows</small></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Calendar</h3>
+          <div class="small-list">
+            <div class="small-item"><span>Mon — 12 Oct</span><span>Dr. Irene (3)</span></div>
+            <div class="small-item"><span>Tue — 13 Oct</span><span>Dr. Paul (2)</span></div>
+            <div class="small-item"><span>Wed — 14 Oct</span><span>Dr. Sarah (4)</span></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
