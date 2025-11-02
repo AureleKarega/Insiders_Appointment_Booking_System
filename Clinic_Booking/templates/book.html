@@ -1,1 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Book an Appointment</h2>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <p>{{ form.doctor_id.label }} {{ form.doctor_id() }}</p>
+    <p>{{ form.date_time.label }} {{ form.date_time() }}</p>
+    <p>{{ form.notes.label }} {{ form.notes() }}</p>
+    <p>{{ form.submit() }}</p>
+  </form>
+{% endblock %}
 
