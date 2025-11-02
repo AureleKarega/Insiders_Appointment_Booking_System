@@ -1,1 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Dashboard</h2>
+  <p>Role: {{ current_user.role }}</p>
+  <div class="cols">
+    <div class="left">
+      <h3>Notifications</h3>
+      <ul>
+      {% for n in notifications %}
+        <li>{{ n.message }} ({{ n.created_at.strftime("%Y-%m-%d %H:%M") }})</li>
+      {% else %}
+        <li>No notifications</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="right">
+      <h3>Appointments</h3>
+      <ul>
+      {% for a in appointments %}
+        <li>{{ a.date_time.strftime("%Y-%m-%d %H:%M") }} - {{ a.status }} - Patient: {{ a.patient.user.name if a.patient else 'N/A' }}</li>
+      {% else %}
+        <li>No appointments</li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}
 
