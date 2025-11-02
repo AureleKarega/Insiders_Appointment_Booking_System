@@ -1,1 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Appointments</h2>
+  <table>
+    <tr><th>Date</th><th>Doctor</th><th>Patient</th><th>Status</th><th>Action</th></tr>
+    {% for a in appointments %}
+      <tr>
+        <td>{{ a.date_time.strftime("%Y-%m-%d %H:%M") }}</td>
+        <td>{{ a.doctor.user.name }}</td>
+        <td>{{ a.patient.user.name }}</td>
+        <td>{{ a.status }}</td>
+        <td>
+          {% if current_user.role in ['doctor','admin'] and a.status == 'pending' %}
+            <form method="post" action="{{ url_for('appointment_action', appt_id=a.id) }}" style="display:inline">
+              <button name="action" value="approve">Approve</button>
+            </form>
+            <form method="post" action="{{ url_for('appointment_action', appt_id=a.id) }}" style="display:inline">
+              <button name="action" value="reject">Reject</button>
+            </form>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
 
