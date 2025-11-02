@@ -1,1 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Doctor Profile</h2>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <p>{{ form.telephone.label }} {{ form.telephone() }}</p>
+    <p>{{ form.specialization.label }} {{ form.specialization() }}</p>
+    <p>{{ form.availability.label }} {{ form.availability() }}</p>
+    <p>{{ form.submit() }}</p>
+  </form>
+{% endblock %}
 
